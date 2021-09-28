@@ -1,0 +1,5 @@
+npm i an-array-of-english-words
+
+butona tıklandığında görünür olmuycak
+
+Proptypes eklicem.
