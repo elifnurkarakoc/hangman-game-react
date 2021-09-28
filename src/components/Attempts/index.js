@@ -1,14 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
+import { HeartIcon } from "../../icons/icon";
+const Attempts = ({ attemptsCount, setAttemptsCount }) => {
+  useEffect(() => {
+    console.log(attemptsCount);
+  }, [attemptsCount]);
+  return (
+    <div className="text-xl flex flex-col items-center text-red-600 justify-center py-6 animate-bounce">
+      <div>
+        <p>You have {attemptsCount} lives</p>
+      </div>
+      <div className="flex ">
+        {[...Array(attemptsCount)].map((x, i) => (
+          <HeartIcon className="h-8 w-8  my-2" />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-const Attempts = ({attemptsCount, setAttemptsCount}) => {
-    useEffect(() => {
-        console.log(attemptsCount)
-    },[attemptsCount])
-    return (
-        <div>
-            <span>Retries Left:{attemptsCount}</span>
-        </div>
-    )
-}
-
-export default Attempts
+export default Attempts;

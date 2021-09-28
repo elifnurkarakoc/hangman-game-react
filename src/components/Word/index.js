@@ -1,12 +1,18 @@
-import React ,{useEffect}from "react";
+import React, { useEffect } from "react";
 import Letter from "../Letter";
-const Word = ({ word, setWord, guesses,setGuessedWord,guessedWord}) => {
-  guessedWord = word.split("").map((l, i) => guesses.includes(l) ? l  : "_");
-  useEffect(()=> {
-    var x = word.split("").map((l, i) => guesses.includes(l) ? l  : "_");
-   // setGuessedWord(x)
-    console.log(guessedWord);
-  },[guessedWord])
+const Word = ({
+  word,
+  guesses,
+  setIsWin,
+}) => {
+  const getResult = () => {
+    let tempWord = word.split("").map((l, i) => (guesses.includes(l) ? l : "_"));
+    return tempWord.join("") === word;
+  };
+  useEffect(() => {
+    let result = getResult();
+    setIsWin(result);
+  }, [guesses]);
   return (
     <div className="flex flex-wrap justify-center">
       {word.split("").map((l, i) => (
