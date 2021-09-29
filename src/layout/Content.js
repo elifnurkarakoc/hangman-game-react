@@ -10,16 +10,31 @@ import image3 from "../images/4.png";
 import image4 from "../images/5.png";
 import image5 from "../images/6.png";
 import image6 from "../images/6.png";
+import Win from "../components/Win";
+import GameOver from "../components/GameOver";
+import randomWord from "../api";
 const images = [image0, image1, image2, image3, image4, image5, image6];
 const Content = () => {
   const [letter, setLetter] = useState("");
   const [attemptsCount, setAttemptsCount] = useState(5);
   const [status, setStatus] = useState(true); //status ==true --> new game, status ==false --> gameower
   const [isWin, setIsWin] = useState(false); //isWin==true user win
-  const [word, setWord] = useState("Hello");
+  const [word, setWord] = useState("hello"); //randomWord()
   const [guesses, setGuesses] = useState([]);
+  const [score, setScore] = useState(0);
 
   var flag;
+  const newGame = (e) => {
+    e.preventDefault();
+    setScore(attemptsCount);
+    setWord(randomWord());
+    setStatus(true);
+    setIsWin(false);
+    setAttemptsCount(5);
+    setLetter("");
+    setGuesses([]);
+    console.log("new game work");
+  };
 
   useEffect(() => {
     setGuesses([...guesses, ...letter]);
@@ -31,14 +46,15 @@ const Content = () => {
       setAttemptsCount(0);
       setStatus(false);
     }
+    setScore(attemptsCount);
     setIsWin(isWin);
   }, [letter]);
   return (
     <div className="">
       {status && !isWin && (
         <div>
-          <Image imagePath={images[5-attemptsCount]}/>
-
+          {/* <Image imagePath={images[5-attemptsCount]}/> */}
+          <div>{word}</div>
           <Attempts
             attemptsCount={attemptsCount}
             setAttemptsCount={setAttemptsCount}
@@ -52,8 +68,16 @@ const Content = () => {
           <Keyboard letter={letter} setLetter={setLetter} />
         </div>
       )}
-      {!status && !isWin && <div>GameOver and PlayAgain</div>}
-      {isWin && <div>Win!!!</div>}
+      {!status && !isWin && (
+        <div>
+          <GameOver word={word} newGame={newGame} />
+        </div>
+      )}
+      {isWin && (
+        <div>
+          <Win word={word} score={score} newGame={newGame} />
+        </div>
+      )}
     </div>
   );
 };

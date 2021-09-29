@@ -1,14 +1,22 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 
-var letters = "abcdefghijklmnopqrstuvwxyz".split("");
+ var defaultLetters = "abcdefghijklmnopqrstuvwxyz".split("");
 
-const Keyboard = ({ letter, setLetter }) => {
+const Keyboard = ({ letter, setLetter}) => {
+  const [letters,setLetters] =useState(defaultLetters)
   const buttonClick = (e) => {
     setLetter(e.target.innerHTML);
   };
 
   useEffect(() => {
-    letters = letters.filter((item) => item !== letter);
+    console.log({ letter });
+    if (letter.length!==0) {
+      console.log({ letter });
+      setLetters(letters.filter((item) => item !== letter));
+    }
+    else {
+      setLetters(defaultLetters);
+    }
   }, [letter]);
   return (
     <div className="flex flex-wrap justify-center ">
@@ -25,4 +33,4 @@ const Keyboard = ({ letter, setLetter }) => {
   );
 };
 
-export default Keyboard;
+export default memo(Keyboard);
