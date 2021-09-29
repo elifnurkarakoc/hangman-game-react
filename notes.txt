@@ -3,3 +3,6 @@ npm i an-array-of-english-words
 butona tıklandığında görünür olmuycak
 
 Proptypes eklicem.
+npm install formik --save
+
+json-server --watch ./data/data.json --port 3001001

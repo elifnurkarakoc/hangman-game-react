@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "score": 0
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "score": 5,
+      "id": 2
+    },
+    {
+      "username": "asdsdada",
+      "password": "aaaa",
+      "score": 0,
+      "id": 3
+    },
+    {
+      "username": "deneme",
+      "password": "deneme",
+      "score": 0,
+      "id": 4
+    },
+    {
+      "username": "test2",
+      "password": "test2",
+      "score": 0,
+      "id": 5
+    },
+    {
+      "username": "elif",
+      "password": "elif",
+      "score": 14,
+      "id": 6
+    }
+  ]
+}

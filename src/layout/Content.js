@@ -12,9 +12,11 @@ import image5 from "../images/6.png";
 import image6 from "../images/6.png";
 import Win from "../components/Win";
 import GameOver from "../components/GameOver";
-import randomWord from "../api";
+import { randomWord } from "../api";
+import { fetchUpdateUser } from "../api";
+
 const images = [image0, image1, image2, image3, image4, image5, image6];
-const Content = () => {
+const Content = ({ user, setUser, updateLocalStorageUser }) => {
   const [letter, setLetter] = useState("");
   const [attemptsCount, setAttemptsCount] = useState(5);
   const [status, setStatus] = useState(true); //status ==true --> new game, status ==false --> gameower
@@ -35,7 +37,13 @@ const Content = () => {
     setGuesses([]);
     console.log("new game work");
   };
-
+  const updateUser =async (object) => {
+    const response = await fetchUpdateUser(object).catch((e) =>
+      console.log(e)
+    );
+    console.log("update user score", response);
+    updateLocalStorageUser(user);
+  };
   useEffect(() => {
     setGuesses([...guesses, ...letter]);
     flag = word.toLowerCase().includes(letter) ? true : false;
@@ -48,11 +56,25 @@ const Content = () => {
     }
     setScore(attemptsCount);
     setIsWin(isWin);
-  }, [letter]);
+    if (isWin === true) {
+      console.log("Win",{user})
+      let object = {
+        username: user.username,
+        password: user.password,
+        score: user.score+score,
+        id: user.id,
+      }
+      updateUser(object)
+      
+    }
+  }, [letter, isWin]);
   return (
     <div className="">
       {status && !isWin && (
         <div>
+          {user !== null && (
+            <p className="text-xl text-center">Welcome {user.username}!</p>
+          )}
           {/* <Image imagePath={images[5-attemptsCount]}/> */}
           <div>{word}</div>
           <Attempts

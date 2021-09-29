@@ -1,3 +1,19 @@
+TODO
+- [ ] Score sayfasında, sayfa yenilemeden veri güncellenmiyor.
+- [ ] Sayfalara erişim kısmını tekrar düzenlicem hatalı.
+Örnek 
+- [ ] Kişi Login olduğu zaman Score ve logout sağ üst köşede olucak
+- [ ] Kişi Login olmadığı zaman Signin ve Signout sağ üst köşede olucak
+- [ ] useMemo ve memo ile gereksiz render işlemlerini önlücem.
+- [ ] Proptype tanımlamalarını yapıcam.
+- [ ] zaman kalırsa testlerini yazıcam.
+- [ ] Thema seçeneği eklicem 
+- [ ] Kodda tekrar olan yerleri component yapabilirim. Örneğin button olan yerler.
+- [ ] Code review yapıcam
+- [ ] Netlify Deployment
+- [ ] Detaylı readme yazıcam
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
