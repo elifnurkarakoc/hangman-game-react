@@ -81,7 +81,7 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
       {status && !isWin && (
         <div>
           {user !== null && (
-            <p className="text-xl text-center">Welcome {user.username}!</p>
+            <p className="text-xl text-gray-700 text-center">Welcome {user.username}!</p>
           )}
           {/* <Image imagePath={images[5-attemptsCount]}/> */}
           <div>{word}</div>

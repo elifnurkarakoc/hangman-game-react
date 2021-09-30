@@ -3,7 +3,7 @@
     {
       "username": "admin",
       "password": "admin",
-      "score": 20,
+      "score": 25,
       "id": 1
     },
     {
@@ -47,6 +47,12 @@
       "password": "heee",
       "score": 0,
       "id": 11
+    },
+    {
+      "username": "elif",
+      "password": "elif",
+      "score": 19,
+      "id": 12
     }
   ]
 }

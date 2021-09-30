@@ -1,8 +1,9 @@
 import React from 'react'
 import UserList from '../../components/UserList'
+
 const Score = () => {
     return (
-        <div>
+        <div className="">
             <UserList />
         </div>
     )

@@ -16,7 +16,7 @@ const Word = ({
   return (
     <div className="flex flex-wrap justify-center">
       {word.split("").map((l, i) => (
-        <div key={i} className="text-xl p-4">
+        <div key={i} className="text-lg p-3">
           {guesses.includes(l) ? <Letter letter={l} /> : "_"}
         </div>
       ))}

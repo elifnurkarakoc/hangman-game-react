@@ -1,6 +1,10 @@
 TODO
 - [x] Score sayfasında, sayfa yenilemeden veri güncellenmiyor.
 - [x] Popup style güncellicem.
+- [x] Iconlarda düzenleme yapmam gerekiyor
+- [ ] Theme butonu eklicem
+- [ ] Sayfa görünümlerini düzenlicem, 
+- [x]Footera kullandığım teknolojileri eklicem.
 - [ ] Sayfalara erişim kısmını tekrar düzenlicem hatalı.
 - [x] Localstorage da score güncellemesine bakıcam.
 - [x] Login olunduğu zaman sayfa güncellemesinde session kaybı yaşanmasını önledim

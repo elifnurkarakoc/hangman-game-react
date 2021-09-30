@@ -6,7 +6,7 @@ const GameOver = ({ word, newGame }) => {
 <div>
   <GameOverIcon className="p-4" />
 </div>
-      <div className="text-3xl my-8 text-red-600 ">
+      <div className="text-2xl my-8 text-red-600 ">
         <p className="animate-bounce ">{word}</p>
       </div>
       {/* <div className="text-3xl my-8 text-red-600 ">
@@ -15,10 +15,10 @@ const GameOver = ({ word, newGame }) => {
       <div className="">
         <button
           onClick={newGame}
-          className=" flex items-center animate-pulse p-4 bg-purple-800 rounded-lg text-white"
+          className=" flex items-center p-2 bg-purple-400 rounded-lg shadow-sm text-white hover:bg-purple-500 focus:outline-none "
         >
           <RefreshIcon className="w-6 h-6" />
-          <p className="text-xl">Try again</p>
+          <p className="text-lg">Try again</p>
         </button>
       </div>
     </div>

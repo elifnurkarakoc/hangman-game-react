@@ -1,5 +1,14 @@
 import { useState, createContext, useEffect, useContext } from "react";
 
+
+/*As soon as the user logs in, the data is kept in the local storage, 
+when the user logs out, the data is deleted from the local storege.
+When the page is refreshed, data is written to the local storage so that the user does not log in again. */
+
+/*AuthContext is the context where user information is kept, 
+local storage is updated,
+and authentication operations such as login and logout are made.*/
+
 const AuthContext = createContext();
 
 let userObject = JSON.parse(localStorage.getItem("user"));
@@ -21,19 +30,15 @@ export const AuthProvider = ({ children }) => {
     (async () => {
       try {
         const userObject = JSON.parse(localStorage.getItem("user"));
-        // console.log("userObject", { userObject });
         if (userObject.username === null || userObject.password === null) {
-          // console.log("userObject is null", { userObject });
           setLoggedIn(false);
         } else {
-          // console.log("else userObject login", { userObject });
           setLoggedIn(true);
           login({
             username: userObject.username,
             password: userObject.password,
             score: userObject.score,
             id: userObject.id,
-            // loggedIn: true,
           });
         }
       } catch (e) {
@@ -42,7 +47,6 @@ export const AuthProvider = ({ children }) => {
     })();
   }, []);
   const login = (data) => {
-    // console.log("login", { data });
     setLoggedIn(true);
     setUser(data);
     var userObject = {
@@ -50,13 +54,11 @@ export const AuthProvider = ({ children }) => {
       password: data.password,
       score: data.score,
       id: data.id,
-      // loggedIn: true,
     };
     localStorage.setItem("user", JSON.stringify(userObject));
   };
 
   const logout = (data) => {
-    // console.log("logout", { data });
     setLoggedIn(false);
     setUser(null);
     localStorage.removeItem("user");
@@ -67,7 +69,6 @@ export const AuthProvider = ({ children }) => {
       password: data.password,
       score: data.score,
       id: data.id,
-      // loggedIn: true,
     };
     console.log("updateLocalStorageUser", { data });
     localStorage.setItem("user", JSON.stringify(userObject));

@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import Error from "../../components/Error";
 import validationSchema from "./validations";
 import { useAuth } from "../../contexts/AuthContext";
 import { fetchUsers } from "../../api";
+
+/*After the user enters the login information(When the login button is clicked), the data in the json-server is checked. 
+If the user login information does not match, the error is written on the screen. */
 const SigninForm = ({ history }) => {
   const { login } = useAuth();
-  console.log("login",{login})
+
   const {
     values,
     handleSubmit,
     handleChange,
-    setFieldValue,
+    // setFieldValue,
     handleBlur,
     errors,
     touched,
@@ -22,7 +25,6 @@ const SigninForm = ({ history }) => {
     },
     onSubmit: async (values, bag) => {
       try {
-        // console.log("values",{values})
         const response = await fetchUsers({
           username: values.username,
           password: values.password,
@@ -33,24 +35,20 @@ const SigninForm = ({ history }) => {
             u.username === values.username &&
             u.password === values.password
           ) {
-            // console.log({u})
             userExist = true;
             login({
               username: values.username,
               password: values.password,
-              score:u.score,
-              id:u.id,
-              // loggedIn:true,
+              score: u.score,
+              id: u.id,
             });
             history.push("/");
           }
         });
         if (!userExist) {
-          // console.log("check the information you entered");
           bag.setErrors({ general: "Check the information you entered." });
         }
       } catch (e) {
-        //console.log(e.data.message);
         bag.setErrors({ general: e.response.data.message });
       }
     },
@@ -64,7 +62,7 @@ const SigninForm = ({ history }) => {
           <div className="flex flex-col items-center shadow-sm">
             <h1 className="text-center text-lg p-2 m-3">Sign in</h1>
             <input
-              className="block border border-gray-200 rounded-lg p-2 m-3 w-3/5 "
+              className="block border focus:outline-none border-gray-200 rounded-lg p-2 m-3 w-3/5 "
               type="text"
               name="username"
               placeholder="username"
@@ -76,7 +74,7 @@ const SigninForm = ({ history }) => {
               <Error message={errors.username} />
             )}
             <input
-              className="block border border-gray-200 rounded-lg p-2 m-3  w-3/5"
+              className="block border focus:outline-none border-gray-200 rounded-lg p-2 m-3  w-3/5"
               type="password"
               name="password"
               placeholder="password"
@@ -87,12 +85,10 @@ const SigninForm = ({ history }) => {
             {errors.password && touched.password && (
               <Error message={errors.password} />
             )}
-            {errors.general && (
-              <Error message={errors.general} />
-            )}
+            {errors.general && <Error message={errors.general} />}
             <button
               onSubmit={() => {}}
-              className=" bg-green-600 rounded-lg p-2 m-3 text-center text-white "
+              className=" bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 rounded-lg p-2 m-3 text-center text-white w-1/4"
             >
               Sign in
             </button>

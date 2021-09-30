@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Error from "../../components/Error";
 import { useFormik } from "formik";
 import validationSchema from "./validations";
 import { fetchRegister } from "../../api";
-
 import { useAuth } from "../../contexts/AuthContext";
+
+/*Score default value of 0 is added to the data requested 
+from the user for registration and a request is made 
+for the json server registration process. */
+
 const Signup = ({ history }) => {
   const { login } = useAuth();
   const {
     values,
     handleSubmit,
     handleChange,
-    setFieldValue,
     handleBlur,
     errors,
     touched,
@@ -26,10 +29,8 @@ const Signup = ({ history }) => {
         const response = await fetchRegister({
           username: values.username,
           password: values.password,
-          score:0,
+          score:0,//default
         });
-        console.log(response);
-
         login({
           username: values.username,
           password: values.password,
@@ -38,7 +39,7 @@ const Signup = ({ history }) => {
         });
         history.push("/");
       } catch (e) {
-        console.log(e.data.message);
+        //console.log(e.data.message);
         bag.setErrors({ general: e.response.data.message });
       }
     },
@@ -52,7 +53,7 @@ const Signup = ({ history }) => {
           <div className="flex flex-col items-center shadow-sm">
             <h1 className="text-center text-lg p-2 m-3">Sign up</h1>
             <input
-              className="block border border-gray-200 rounded-lg p-2 m-3 w-3/5 "
+              className="block border focus:outline-none border-gray-200 rounded-lg p-2 m-3 w-3/5 "
               type="text"
               name="username"
               placeholder="username"
@@ -64,7 +65,7 @@ const Signup = ({ history }) => {
               <Error message={errors.username} />
             )}
             <input
-              className="block border border-gray-200 rounded-lg p-2 m-3  w-3/5"
+              className="block border focus:outline-none border-gray-200 rounded-lg p-2 m-3  w-3/5"
               type="password"
               name="password"
               placeholder="password"
@@ -76,7 +77,7 @@ const Signup = ({ history }) => {
               <Error message={errors.password} />
             )}
             <input
-              className="block border border-gray-200 rounded-lg p-2 m-3  w-3/5"
+              className="block border border-gray-200 focus:outline-none focus:ring-gray-600 rounded-lg p-2 m-3  w-3/5"
               type="password"
               name="passwordConfirm"
               placeholder="password confirm"
@@ -90,7 +91,7 @@ const Signup = ({ history }) => {
             {errors.general && <Error message={errors.general} />}
             <button
               onClick={() => {}}
-              className=" bg-green-600 rounded-lg p-2 m-3 text-center text-white "
+              className=" bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 rounded-lg p-2 m-3 text-center text-white w-1/4"
             >
               Sign up
             </button>
