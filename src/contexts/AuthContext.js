@@ -62,7 +62,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
   };
   const updateLocalStorageUser = (data) => {
-    setUser(data);
     var userObject = {
       username: data.username,
       password: data.password,
@@ -73,6 +72,7 @@ export const AuthProvider = ({ children }) => {
     console.log("updateLocalStorageUser", { data });
     localStorage.setItem("user", JSON.stringify(userObject));
   };
+
   const values = {
     loggedIn,
     user,

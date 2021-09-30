@@ -4,6 +4,8 @@ TODO
 - [ ] Localstorage da score güncellemesine bakıcam.
 - [x] Login olunduğu zaman sayfa güncellemesinde session kaybı yaşanmasını önledim
 - [ ] Login olan kişi sign in ve signup'ı görüntülememeli.
+- [ ] Score güncelleme ikinci oyunda çalışmıyor. skor güncellenmeli ve Score table'a yansımalı.
+- [ ] Do you want to delete your account? PopUp
 Örnek 
 - [ ] Kişi Login olduğu zaman Score ve logout sağ üst köşede olucak
 - [ ] Kişi Login olmadığı zaman Signin ve Signout sağ üst köşede olucak
@@ -17,8 +19,10 @@ TODO
 - [ ] Kullanıcı profile sayfasında kullanıcı silme işlemi yapılabilir.
 - [ ] Kodda tekrar olan yerleri component yapabilirim. Örneğin button olan yerler.
 - [ ] Code review yapıcam
+- [ ] Kaldırılması gereken paketleri kaldır.
 - [ ] Netlify Deployment
 - [ ] Detaylı readme yazıcam
+
 
 
 # Getting Started with Create React App

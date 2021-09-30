@@ -1,15 +1,15 @@
 {
   "users": [
     {
-      "id": 1,
       "username": "admin",
       "password": "admin",
-      "score": 0
+      "score": 20,
+      "id": 1
     },
     {
       "username": "test",
       "password": "test",
-      "score": 5,
+      "score": 19,
       "id": 2
     },
     {
@@ -27,14 +27,8 @@
     {
       "username": "test2",
       "password": "test2",
-      "score": 0,
+      "score": 9,
       "id": 5
-    },
-    {
-      "username": "elif",
-      "password": "elif",
-      "score": 14,
-      "id": 6
     },
     {
       "username": "deniyom",

@@ -9,13 +9,11 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) => {
-        //TODO: Kontrol eklicem --> Signup ve signin sayfaları loggedIn==true ise açma mevcut dayfada kal.
         if (loggedIn) {
-          console.log("component name protected routing", Component);
+          console.log("component name protected routing", Component, rest);
           return <Component />;
         }
-
-        return <Redirect to={{ pathname: "/signup" }} />;
+        return <Redirect to={{ pathname: "/signin" }} />;
       }}
     ></Route>
   );

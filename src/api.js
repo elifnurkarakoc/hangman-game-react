@@ -30,6 +30,12 @@ export const fetchSortScore = async () => {
 
 export const fetchUpdateUser = async (userData) => {
   const {data} =await axios.put(`${process.env.REACT_APP_BASE_ENDPOINT}/users/${userData.id}`,userData)
-  console.log("update user score", data);
+  //console.log("update user score", data);
   return data;
+}
+
+export const fetchDeleteUser = async (userData) => {
+  const {data} = await axios.delete(`${process.env.REACT_APP_BASE_ENDPOINT}/users/${userData.id}`,userData)
+  console.log("delete user", data);
+  return data
 }

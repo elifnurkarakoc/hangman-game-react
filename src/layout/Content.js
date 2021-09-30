@@ -41,11 +41,16 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
     const response = await fetchUpdateUser(object).catch((e) =>
       console.log(e)
     );
-    updateLocalStorageUser(user);
+    // const tempUser = updateLocalStorageUser(user);
+    setUser(response)
+    updateLocalStorageUser(response);
+    
     console.log("update user score", response);
+    console.log("update user score user", user);
     
   };
   useEffect(() => {
+    console.log("isWin",{isWin})
     setGuesses([...guesses, ...letter]);
     flag = word.toLowerCase().includes(letter) ? true : false;
     console.log({ attemptsCount }, { letter }, { flag });
@@ -57,14 +62,18 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
     }
     setScore(attemptsCount);
     setIsWin(isWin);
+    
     if (isWin === true) {
-      console.log("Win",{user})
+      console.log({user})
+      let refreshScore= user.score+score
+      console.log({refreshScore})
       let object = {
         username: user.username,
         password: user.password,
-        score: user.score+score,
+        score: refreshScore ,
         id: user.id,
       }
+      console.log("Win",{object})
       updateUser(object)
       
     }

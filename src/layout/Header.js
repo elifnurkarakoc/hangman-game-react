@@ -14,6 +14,9 @@ const Header = () => {
       <div className="text-lg ">
         {loggedIn && (
           <div>
+            <Link to="/profile" className="mr-2">
+              Profile
+            </Link>
             <Link to="/score" className="mr-2">
               Score
             </Link>
