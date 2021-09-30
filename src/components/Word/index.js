@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import Letter from "../Letter";
-const Word = ({
-  word,
-  guesses,
-  setIsWin,
-}) => {
+import { useTheme } from "../../contexts/ThemeContext";
+const Word = ({ word, guesses, setIsWin }) => {
+  const { theme } = useTheme();
   const getResult = () => {
-    let tempWord = word.split("").map((l, i) => (guesses.includes(l) ? l : "_"));
+    let tempWord = word
+      .split("")
+      .map((l, i) => (guesses.includes(l) ? l : "_"));
     return tempWord.join("") === word;
   };
   useEffect(() => {
@@ -14,7 +14,7 @@ const Word = ({
     setIsWin(result);
   }, [guesses]);
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className={`flex flex-wrap justify-center text-${theme}-300 `}>
       {word.split("").map((l, i) => (
         <div key={i} className="text-lg p-3">
           {guesses.includes(l) ? <Letter letter={l} /> : "_"}

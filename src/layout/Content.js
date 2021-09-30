@@ -14,9 +14,12 @@ import Win from "../components/Win";
 import GameOver from "../components/GameOver";
 import { randomWord } from "../api";
 import { fetchUpdateUser } from "../api";
-
+import { useTheme } from "../contexts/ThemeContext";
 const images = [image0, image1, image2, image3, image4, image5, image6];
+
 const Content = ({ user, setUser, updateLocalStorageUser }) => {
+  const { theme } = useTheme();
+
   const [letter, setLetter] = useState("");
   const [attemptsCount, setAttemptsCount] = useState(5);
   const [status, setStatus] = useState(true); //status ==true --> new game, status ==false --> gameower
@@ -37,18 +40,17 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
     setGuesses([]);
     console.log("new game work");
   };
-  const updateUser =async (object) => {
-    const response = await fetchUpdateUser(object)
+  const updateUser = async (object) => {
+    const response = await fetchUpdateUser(object);
     // const tempUser = updateLocalStorageUser(user);
-    setUser(response)
+    setUser(response);
     updateLocalStorageUser(response);
-    
+
     console.log("update user score", response);
     console.log("update user score user", user);
-    
   };
   useEffect(() => {
-    console.log("isWin",{isWin})
+    console.log("isWin", { isWin });
     setGuesses([...guesses, ...letter]);
     flag = word.toLowerCase().includes(letter) ? true : false;
     console.log({ attemptsCount }, { letter }, { flag });
@@ -60,20 +62,19 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
     }
     setScore(attemptsCount);
     setIsWin(isWin);
-    
+
     if (isWin === true) {
-      console.log({user})
-      let refreshScore= user.score+score
-      console.log({refreshScore})
+      console.log({ user });
+      let refreshScore = user.score + score;
+      console.log({ refreshScore });
       let object = {
         username: user.username,
         password: user.password,
-        score: refreshScore ,
+        score: refreshScore,
         id: user.id,
-      }
-      console.log("Win",{object})
-      updateUser(object)
-      
+      };
+      console.log("Win", { object });
+      updateUser(object);
     }
   }, [letter, isWin]);
   return (
@@ -81,7 +82,10 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
       {status && !isWin && (
         <div>
           {user !== null && (
-            <p className="text-xl text-gray-700 text-center">Welcome {user.username}!</p>
+            // "text-xl text-gray-700 text-center"
+            <p className={`text-xl text-${theme}-300 text-center`}>
+              Welcome {user.username}!
+            </p>
           )}
           {/* <Image imagePath={images[5-attemptsCount]}/> */}
           <div>{word}</div>

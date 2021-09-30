@@ -1,8 +1,11 @@
 import React from "react";
 import { LinkedinIcon, GithubIcon } from "../icons/icon";
+import { useTheme } from "../contexts/ThemeContext";
 const Footer = () => {
+  const { theme } = useTheme();
+  //"flex justify-between items-center py-4 text-sm text-gray-700"
   return (
-    <div className="flex justify-between items-center py-4 text-sm text-gray-700">
+    <div className={`flex justify-between items-center py-4 text-sm text-${theme}-300 `}>
       <div>
         <div>Designed and developed by Elif Nur Karakoç.</div>
         <div>Built with React & Tailwind CSS.</div>

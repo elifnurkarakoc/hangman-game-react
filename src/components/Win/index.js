@@ -1,9 +1,14 @@
 import React from "react";
-import { RefreshIcon, FireworksIcon } from "../../icons/icon";
+import { RefreshIcon } from "../../icons/icon";
+import { useTheme } from "../../contexts/ThemeContext"
+import icon from "../../images/party2.svg"
+
 const Win = ({ word, score, newGame }) => {
+  const { theme } = useTheme();
   return (
-    <div className="flex flex-col items-center">
-      <FireworksIcon className="p-6" />
+    <div className={`flex flex-col items-center text-${theme}-300 `}>
+      <img src={icon} alt="icon" className="w-30 h-24"/>
+      {/* <FireworksIcon className="p-6 bg-${theme}-300" /> */}
       {/* 
       <div className="my-8">
         <p className="animate-none text-3xl ">{word}</p>

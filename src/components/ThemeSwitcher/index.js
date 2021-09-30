@@ -1,12 +1,13 @@
 import React from "react";
-import { useTheme } from "@emotion/react";
+import { useTheme } from "../../contexts/ThemeContext";
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
+  
 
   return (
     <div>
-      <button onClick={toggleTheme}>
-        {theme === "dark" ? <span>🌞</span> : <span>🌙</span>}
+      <button onClick={toggleTheme} className="" >
+        {theme === "dark" ? <span>🌕</span> : <span>🌑</span>}
       </button>
     </div>
   );

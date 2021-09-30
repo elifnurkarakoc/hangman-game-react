@@ -1,11 +1,18 @@
 TODO
+- [ ] Sayfalara erişim kısmını tekrar düzenlicem hatalı.
+- [ ] useMemo ve memo ile gereksiz render işlemlerini önlücem.
+- [ ] Proptype tanımlamalarını yapıcam.
+- [ ] zaman kalırsa testlerini yazıcam.
+- [ ] Code review yapıcam
+- [x] Kaldırılması gereken paketleri kaldır.
+- [ ] Netlify Deployment
+- [ ] Detaylı readme yazıcam,koda açıklamlar eklicem
 - [x] Score sayfasında, sayfa yenilemeden veri güncellenmiyor.
 - [x] Popup style güncellicem.
 - [x] Iconlarda düzenleme yapmam gerekiyor
-- [ ] Theme butonu eklicem
-- [ ] Sayfa görünümlerini düzenlicem, 
+- [x] Theme butonu eklicem,localstorage ekleme yaptım.
+- [x] Sayfa görünümlerini düzenlicem, 
 - [x]Footera kullandığım teknolojileri eklicem.
-- [ ] Sayfalara erişim kısmını tekrar düzenlicem hatalı.
 - [x] Localstorage da score güncellemesine bakıcam.
 - [x] Login olunduğu zaman sayfa güncellemesinde session kaybı yaşanmasını önledim
 - [ ] Login olan kişi sign in ve signup'ı görüntülememeli.
@@ -16,18 +23,15 @@ TODO
 - [x] Kişi Login olmadığı zaman Signin ve Signout sağ üst köşede olucak
 
 
-- [ ] useMemo ve memo ile gereksiz render işlemlerini önlücem.
-- [ ] Proptype tanımlamalarını yapıcam.
-- [ ] zaman kalırsa testlerini yazıcam.
-- [ ] Thema seçeneği eklicem 
+
+- [x] Thema seçeneği eklicem 
 - [x] Kullanıcı profile sayfası eklenebilir.
 - [x] Kullanıcı profile sayfasında kullanıcı silme işlemi yapılabilir.
 - [ ] Kodda tekrar olan yerleri component yapabilirim. Örneğin button olan yerler.
-- [ ] Code review yapıcam
-- [ ] Kaldırılması gereken paketleri kaldır.
-- [ ] Netlify Deployment
-- [ ] Detaylı readme yazıcam
 
+
+-Update UI
+- [x] container
 
 
 # Getting Started with Create React App

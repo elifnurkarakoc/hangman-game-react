@@ -2,16 +2,24 @@ import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useTheme } from "../contexts/ThemeContext";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 const Header = () => {
-  const { loggedIn,logout } = useAuth();
+  const { loggedIn, logout } = useAuth();
+  const { theme } = useTheme();
   //console.log(loggedIn);
+  //dark:bg-gray-900 dark:text-red-50
+  //"flex justify-between items-center text-gray-700  "
   return (
-    <div className="flex justify-between items-center text-gray-700">
-      <div className="text-2xl">
+    <div className={`flex justify-between items-center py-3 text-${theme}-300 `}>
+      <div className="flex text-2xl">
+        <div className="mr-2">
+          <ThemeSwitcher />
+        </div>
         <Link to="/" exact className="mr-2">
           Hangman Game
         </Link>
       </div>
+
       <div className="text-lg ">
         {loggedIn && (
           <div>

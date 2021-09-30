@@ -4,23 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./contexts/AuthContext";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnMount: false,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 ReactDOM.render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+  <React.StrictMode>  
       <AuthProvider>
         <App />
       </AuthProvider>
-    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
