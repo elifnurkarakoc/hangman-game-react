@@ -2,9 +2,9 @@ import React from "react";
 
 const User = ({ user }) => {
   return (
-    <tr className="bg-purple-200">
-      <td className="px-6">{user.username}</td>
-      <td className="px-6">{user.score}</td>
+    <tr className="bg-gray-100 ">
+      <td className="">{user.username}</td>
+      <td className="">{user.score}</td>
     </tr>
   );
 };

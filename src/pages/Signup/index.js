@@ -26,6 +26,7 @@ const Signup = ({ history }) => {
         const response = await fetchRegister({
           username: values.username,
           password: values.password,
+          score:0,
         });
         console.log(response);
 

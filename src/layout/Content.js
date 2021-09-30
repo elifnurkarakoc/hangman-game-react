@@ -38,9 +38,7 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
     console.log("new game work");
   };
   const updateUser =async (object) => {
-    const response = await fetchUpdateUser(object).catch((e) =>
-      console.log(e)
-    );
+    const response = await fetchUpdateUser(object)
     // const tempUser = updateLocalStorageUser(user);
     setUser(response)
     updateLocalStorageUser(response);
