@@ -22,7 +22,7 @@ const SigninForm = ({ history }) => {
     },
     onSubmit: async (values, bag) => {
       try {
-        console.log("values",{values})
+        // console.log("values",{values})
         const response = await fetchUsers({
           username: values.username,
           password: values.password,
@@ -33,20 +33,20 @@ const SigninForm = ({ history }) => {
             u.username === values.username &&
             u.password === values.password
           ) {
-            console.log({u})
+            // console.log({u})
             userExist = true;
             login({
               username: values.username,
               password: values.password,
               score:u.score,
               id:u.id,
-              loggedIn:true,
+              // loggedIn:true,
             });
             history.push("/");
           }
         });
         if (!userExist) {
-          console.log("check the information you entered");
+          // console.log("check the information you entered");
           bag.setErrors({ general: "Check the information you entered." });
         }
       } catch (e) {

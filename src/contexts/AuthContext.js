@@ -1,6 +1,7 @@
 import { useState, createContext, useEffect, useContext } from "react";
 
 const AuthContext = createContext();
+
 let userObject = JSON.parse(localStorage.getItem("user"));
 
 export const AuthProvider = ({ children }) => {
@@ -15,32 +16,24 @@ export const AuthProvider = ({ children }) => {
         };
   const [user, setUser] = useState(value);
   const [loggedIn, setLoggedIn] = useState(user === null ? false: true);
-  // (() => {
-  //   const userObject = JSON.parse(localStorage.getItem("user"));
-  //   if (userObject=== null ) {
-  //     setLoggedIn(false);
-  //   }
-  //   else{
-  //     setLoggedIn(true);
-  //   }
-  // } )();
+
   useEffect(() => {
     (async () => {
       try {
         const userObject = JSON.parse(localStorage.getItem("user"));
-        console.log("userObject", { userObject });
+        // console.log("userObject", { userObject });
         if (userObject.username === null || userObject.password === null) {
-          console.log("userObject is null", { userObject });
+          // console.log("userObject is null", { userObject });
           setLoggedIn(false);
         } else {
-          console.log("else userObject login", { userObject });
+          // console.log("else userObject login", { userObject });
           setLoggedIn(true);
           login({
             username: userObject.username,
             password: userObject.password,
             score: userObject.score,
             id: userObject.id,
-            loggedIn: true,
+            // loggedIn: true,
           });
         }
       } catch (e) {
@@ -49,7 +42,7 @@ export const AuthProvider = ({ children }) => {
     })();
   }, []);
   const login = (data) => {
-    console.log("login", { data });
+    // console.log("login", { data });
     setLoggedIn(true);
     setUser(data);
     var userObject = {
@@ -57,13 +50,13 @@ export const AuthProvider = ({ children }) => {
       password: data.password,
       score: data.score,
       id: data.id,
-      loggedIn: true,
+      // loggedIn: true,
     };
     localStorage.setItem("user", JSON.stringify(userObject));
   };
 
   const logout = (data) => {
-    console.log("logout", { data });
+    // console.log("logout", { data });
     setLoggedIn(false);
     setUser(null);
     localStorage.removeItem("user");
@@ -75,7 +68,7 @@ export const AuthProvider = ({ children }) => {
       password: data.password,
       score: data.score,
       id: data.id,
-      loggedIn: true,
+      // loggedIn: true,
     };
     console.log("updateLocalStorageUser", { data });
     localStorage.setItem("user", JSON.stringify(userObject));

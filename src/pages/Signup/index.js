@@ -5,7 +5,7 @@ import validationSchema from "./validations";
 import { fetchRegister } from "../../api";
 
 import { useAuth } from "../../contexts/AuthContext";
-const Signup = ({history}) => {
+const Signup = ({ history }) => {
   const { login } = useAuth();
   const {
     values,
@@ -28,17 +28,17 @@ const Signup = ({history}) => {
           password: values.password,
         });
         console.log(response);
-        
+
         login({
           username: values.username,
           password: values.password,
-          id:response.id,
-          score:0,
-
+          id: response.id,
+          score: 0,
         });
-        history.push("/")
+        history.push("/");
       } catch (e) {
         console.log(e.data.message);
+        bag.setErrors({ general: e.response.data.message });
       }
     },
     validationSchema,
@@ -86,10 +86,9 @@ const Signup = ({history}) => {
             {errors.passwordConfirm && touched.passwordConfirm && (
               <Error message={errors.passwordConfirm} />
             )}
+            {errors.general && <Error message={errors.general} />}
             <button
-              onClick={() => {
-                console.log("submit");
-              }}
+              onClick={() => {}}
               className=" bg-green-600 rounded-lg p-2 m-3 text-center text-white "
             >
               Sign up
