@@ -1,25 +1,47 @@
 import { useState, createContext, useEffect, useContext } from "react";
 
 const AuthContext = createContext();
+let userObject = JSON.parse(localStorage.getItem("user"));
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
-
+  let value =
+    userObject === null
+      ? null
+      : {
+          username: userObject.username,
+          password: userObject.password,
+          score: userObject.score,
+          id: userObject.id,
+        };
+  const [user, setUser] = useState(value);
+  const [loggedIn, setLoggedIn] = useState(user === null ? false: true);
+  // (() => {
+  //   const userObject = JSON.parse(localStorage.getItem("user"));
+  //   if (userObject=== null ) {
+  //     setLoggedIn(false);
+  //   }
+  //   else{
+  //     setLoggedIn(true);
+  //   }
+  // } )();
   useEffect(() => {
     (async () => {
       try {
-        const userObject = localStorage.getItem("user");
+        const userObject = JSON.parse(localStorage.getItem("user"));
+        console.log("userObject", { userObject });
         if (userObject.username === null || userObject.password === null) {
+          console.log("userObject is null", { userObject });
           setLoggedIn(false);
         } else {
+          console.log("else userObject login", { userObject });
+          setLoggedIn(true);
           login({
             username: userObject.username,
             password: userObject.password,
             score: userObject.score,
             id: userObject.id,
+            loggedIn: true,
           });
-          setLoggedIn(true);
         }
       } catch (e) {
         console.log(e);
@@ -27,6 +49,7 @@ export const AuthProvider = ({ children }) => {
     })();
   }, []);
   const login = (data) => {
+    console.log("login", { data });
     setLoggedIn(true);
     setUser(data);
     var userObject = {
@@ -34,26 +57,29 @@ export const AuthProvider = ({ children }) => {
       password: data.password,
       score: data.score,
       id: data.id,
+      loggedIn: true,
     };
     localStorage.setItem("user", JSON.stringify(userObject));
   };
 
   const logout = (data) => {
+    console.log("logout", { data });
     setLoggedIn(false);
     setUser(null);
     localStorage.removeItem("user");
   };
-  const updateLocalStorageUser =(data) => {
+  const updateLocalStorageUser = (data) => {
     setUser(data);
     var userObject = {
       username: data.username,
       password: data.password,
       score: data.score,
       id: data.id,
+      loggedIn: true,
     };
-    console.log("updateUSer",{data})
+    console.log("updateLocalStorageUser", { data });
     localStorage.setItem("user", JSON.stringify(userObject));
-  }
+  };
   const values = {
     loggedIn,
     user,

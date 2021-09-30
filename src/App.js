@@ -16,7 +16,7 @@ function App() {
         <Container>
           <Header />
           <Switch>
-            <Route path="/" exact component={Home} />
+            <ProtectedRoute path="/" exact component={Home} />
             <ProtectedRoute path="/score" component={Score} />
             <Route path="/signin" component={SigninForm} />
             <Route path="/signup" component={Signup} />

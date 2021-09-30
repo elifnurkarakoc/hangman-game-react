@@ -35,6 +35,18 @@
       "password": "elif",
       "score": 14,
       "id": 6
+    },
+    {
+      "username": "deniyom",
+      "password": "deniyom",
+      "score": 4,
+      "id": 7
+    },
+    {
+      "username": "hellobengeldim",
+      "password": "hellobengeldim",
+      "score": 9,
+      "id": 8
     }
   ]
 }

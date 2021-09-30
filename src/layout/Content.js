@@ -41,8 +41,9 @@ const Content = ({ user, setUser, updateLocalStorageUser }) => {
     const response = await fetchUpdateUser(object).catch((e) =>
       console.log(e)
     );
-    console.log("update user score", response);
     updateLocalStorageUser(user);
+    console.log("update user score", response);
+    
   };
   useEffect(() => {
     setGuesses([...guesses, ...letter]);

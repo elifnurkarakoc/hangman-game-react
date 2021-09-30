@@ -1,13 +1,20 @@
 TODO
 - [ ] Score sayfasında, sayfa yenilemeden veri güncellenmiyor.
 - [ ] Sayfalara erişim kısmını tekrar düzenlicem hatalı.
+- [ ] Localstorage da score güncellemesine bakıcam.
+- [x] Login olunduğu zaman sayfa güncellemesinde session kaybı yaşanmasını önledim
+- [ ] Login olan kişi sign in ve signup'ı görüntülememeli.
 Örnek 
 - [ ] Kişi Login olduğu zaman Score ve logout sağ üst köşede olucak
 - [ ] Kişi Login olmadığı zaman Signin ve Signout sağ üst köşede olucak
+
+
 - [ ] useMemo ve memo ile gereksiz render işlemlerini önlücem.
 - [ ] Proptype tanımlamalarını yapıcam.
 - [ ] zaman kalırsa testlerini yazıcam.
 - [ ] Thema seçeneği eklicem 
+- [ ] Kullanıcı profile sayfası eklenebilir.
+- [ ] Kullanıcı profile sayfasında kullanıcı silme işlemi yapılabilir.
 - [ ] Kodda tekrar olan yerleri component yapabilirim. Örneğin button olan yerler.
 - [ ] Code review yapıcam
 - [ ] Netlify Deployment

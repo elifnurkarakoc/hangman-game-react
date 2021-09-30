@@ -5,4 +5,4 @@ butona tıklandığında görünür olmuycak
 Proptypes eklicem.
 npm install formik --save
 
-json-server --watch ./data/data.json --port 3001001
+json-server --watch ./data/data.json --port 3001

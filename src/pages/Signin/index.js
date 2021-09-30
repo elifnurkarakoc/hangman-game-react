@@ -6,6 +6,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { fetchUsers } from "../../api";
 const SigninForm = ({ history }) => {
   const { login } = useAuth();
+  console.log("login",{login})
   const {
     values,
     handleSubmit,
@@ -21,6 +22,7 @@ const SigninForm = ({ history }) => {
     },
     onSubmit: async (values, bag) => {
       try {
+        console.log("values",{values})
         const response = await fetchUsers({
           username: values.username,
           password: values.password,
@@ -38,6 +40,7 @@ const SigninForm = ({ history }) => {
               password: values.password,
               score:u.score,
               id:u.id,
+              loggedIn:true,
             });
             history.push("/");
           }
