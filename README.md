@@ -7,7 +7,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Hangman Game Screen Shot](https://github.com/elifnurkarakoc/hangman-game-react/blob/main/hangman-game-ss/Hangman-Game-with-ReactAndTailwind%20CSS.gif)
 
 - [x] Rules of Hangman game
 - [x] CRUD operations with Json-server
@@ -17,6 +17,7 @@
 
 The live version of the project could not be deployed on netlify due to the json server.
 
+[You can access screenshots from the link](https://github.com/elifnurkarakoc/hangman-game-react/tree/main/hangman-game-ss)
 ### Built With
 
 * [ReactJS](https://reactjs.org/)
