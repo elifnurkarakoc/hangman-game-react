@@ -3,7 +3,7 @@
     {
       "username": "elif",
       "password": "elif",
-      "score": 6,
+      "score": 15,
       "id": 1
     },
     {
@@ -11,6 +11,12 @@
       "password": "test",
       "score": 10,
       "id": 2
+    },
+    {
+      "username": "test2",
+      "password": "test2",
+      "score": 5,
+      "id": 3
     }
   ]
 }

@@ -5,7 +5,7 @@ const Title = () => {
   const { theme } = useTheme();
   const { user } = useAuth();
   return (
-    <p className={`text-xl text-${theme}-300 text-center`}>
+    <p className={`text-xl text-${theme}-300 text-center my-2`}>
       Welcome {user.username}!
     </p>
   );

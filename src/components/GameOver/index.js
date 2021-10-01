@@ -6,9 +6,9 @@ const GameOver = () => {
   const { word, newGame } = useGame();
   return (
     <div className="flex flex-col items-center">
-      <div>
+      {/* <div>
         <img src={icon} alt="icon" className="w-30 h-24" />
-      </div>
+      </div> */}
       <div className="text-2xl my-8 text-red-600 ">
         <p className="animate-bounce ">{word}</p>
       </div>

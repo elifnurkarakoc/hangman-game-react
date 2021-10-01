@@ -5,7 +5,7 @@ const Attempts = () => {
   const { attemptsCount } = useGame();
 
   return (
-    <div className="text-xl flex flex-col items-center text-red-600 py-6 hover:text-red-700 animate-bounce my-16">
+    <div className="text-xl flex flex-col items-center text-red-600 py-2 hover:text-red-700 animate-bounce my-8">
       <div>
         <p className="text-lg">You have {attemptsCount} lives</p>
       </div>

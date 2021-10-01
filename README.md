@@ -1,6 +1,6 @@
 TODO
 
-- [ ] Imageler ile adamı asmam gerekiyor.
+- [x] Imageler ile adamı asmam gerekiyor. --> Image ile yapmadım. HTML ile yaptım
 - [ ] Signup username kontrol
 - [ ] useMemo ve memo ile gereksiz render işlemlerini önlücem.
 - [ ] zaman kalırsa testlerini yazıcam.
@@ -38,6 +38,7 @@ DONE
 - Theme Switcher with Tailwind CSS
 -
 -
+https://codepen.io/aaronng/pen/JNRqYe
 
 Tailwind CSS
 

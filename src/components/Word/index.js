@@ -9,7 +9,7 @@ const Word = () => {
   return (
     <div className={`flex flex-wrap justify-center text-${theme}-300 `}>
       {word.split("").map((l, i) => (
-        <div key={i} className="text-lg p-3">
+        <div key={i} className="text-lg px-4 mb-2">
           {guesses.includes(l) ? <Letter letter={l} /> : "_"}
         </div>
       ))}

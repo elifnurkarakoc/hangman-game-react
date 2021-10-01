@@ -9,7 +9,7 @@ const Win = () => {
   const { theme } = useTheme();
   return (
     <div className={`flex flex-col items-center text-${theme}-300 `}>
-      <img src={icon} alt="icon" className="w-30 h-24"/>
+      {/* <img src={icon} alt="icon" className="w-30 h-24"/> */}
       <div className="my-8 ">
         <p className="animate-bounce text-xl ">You won +{score} point</p>
       </div>
