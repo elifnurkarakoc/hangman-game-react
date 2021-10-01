@@ -13,10 +13,16 @@
       "id": 2
     },
     {
-      "username": "test2",
-      "password": "test2",
-      "score": 5,
-      "id": 3
+      "username": "admin",
+      "password": "admin",
+      "score": 22,
+      "id": 4
+    },
+    {
+      "username": "helloworld",
+      "password": "helloworld",
+      "score": 20,
+      "id": 5
     }
   ]
 }
