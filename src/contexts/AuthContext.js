@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
       score: data.score,
       id: data.id,
     };
-    console.log("updateLocalStorageUser", { data });
+    // console.log("updateLocalStorageUser", { data });
     localStorage.setItem("user", JSON.stringify(userObject));
   };
 

@@ -2,8 +2,10 @@ import React from "react";
 import { RefreshIcon } from "../../icons/icon";
 import { useTheme } from "../../contexts/ThemeContext"
 import icon from "../../images/party2.svg"
+import { useGame } from "../../contexts/GameContext";
 
-const Win = ({ word, score, newGame }) => {
+const Win = () => {
+  const { score, newGame } =useGame();
   const { theme } = useTheme();
   return (
     <div className={`flex flex-col items-center text-${theme}-300 `}>
@@ -14,12 +16,12 @@ const Win = ({ word, score, newGame }) => {
         <p className="animate-none text-3xl ">{word}</p>
       </div> */}
       <div className="my-8 ">
-        <p className="animate-bounce text-xl ">You win +{score} point</p>
+        <p className="animate-bounce text-xl ">You won +{score} point</p>
       </div>
       <div className="py-3">
         <button
           onClick={newGame}
-          className="flex items-center p-2 bg-purple-400 rounded-lg shadow-sm text-white hover:bg-purple-500 focus:outline-none "
+          className="flex items-center p-2 bg-purple-500 rounded-lg shadow-sm text-white hover:bg-purple-600 focus:outline-none "
         >
           <RefreshIcon className="w-6 h-6" />
           <p className="text-lg">New game</p>

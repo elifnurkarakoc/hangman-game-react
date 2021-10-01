@@ -15,101 +15,36 @@ import GameOver from "../components/GameOver";
 import { randomWord } from "../api";
 import { fetchUpdateUser } from "../api";
 import { useTheme } from "../contexts/ThemeContext";
+import { useGame } from "../contexts/GameContext";
+import { useAuth } from "../contexts/AuthContext";
+import Title from "../components/Title";
 const images = [image0, image1, image2, image3, image4, image5, image6];
 
-const Content = ({ user, setUser, updateLocalStorageUser }) => {
+const Content = () => {
   const { theme } = useTheme();
+  const { status, isWin, word } = useGame();
+  const { user } = useAuth();
 
-  const [letter, setLetter] = useState("");
-  const [attemptsCount, setAttemptsCount] = useState(5);
-  const [status, setStatus] = useState(true); //status ==true --> new game, status ==false --> gameower
-  const [isWin, setIsWin] = useState(false); //isWin==true user win
-  const [word, setWord] = useState("hello"); //randomWord()
-  const [guesses, setGuesses] = useState([]);
-  const [score, setScore] = useState(0);
-
-  var flag;
-  const newGame = (e) => {
-    e.preventDefault();
-    setScore(attemptsCount);
-    setWord(randomWord());
-    setStatus(true);
-    setIsWin(false);
-    setAttemptsCount(5);
-    setLetter("");
-    setGuesses([]);
-    console.log("new game work");
-  };
-  const updateUser = async (object) => {
-    const response = await fetchUpdateUser(object);
-    // const tempUser = updateLocalStorageUser(user);
-    setUser(response);
-    updateLocalStorageUser(response);
-
-    console.log("update user score", response);
-    console.log("update user score user", user);
-  };
-  useEffect(() => {
-    console.log("isWin", { isWin });
-    setGuesses([...guesses, ...letter]);
-    flag = word.toLowerCase().includes(letter) ? true : false;
-    console.log({ attemptsCount }, { letter }, { flag });
-    if (!flag && attemptsCount > 1) {
-      setAttemptsCount(attemptsCount - 1);
-    } else if (attemptsCount === 1) {
-      setAttemptsCount(0);
-      setStatus(false);
-    }
-    setScore(attemptsCount);
-    setIsWin(isWin);
-
-    if (isWin === true) {
-      console.log({ user });
-      let refreshScore = user.score + score;
-      console.log({ refreshScore });
-      let object = {
-        username: user.username,
-        password: user.password,
-        score: refreshScore,
-        id: user.id,
-      };
-      console.log("Win", { object });
-      updateUser(object);
-    }
-  }, [letter, isWin]);
   return (
     <div className="">
       {status && !isWin && (
         <div>
-          {user !== null && (
-            // "text-xl text-gray-700 text-center"
-            <p className={`text-xl text-${theme}-300 text-center`}>
-              Welcome {user.username}!
-            </p>
-          )}
+          {user !== null && <Title />}
           {/* <Image imagePath={images[5-attemptsCount]}/> */}
           <div>{word}</div>
-          <Attempts
-            attemptsCount={attemptsCount}
-            setAttemptsCount={setAttemptsCount}
-          />
-
-          <Word
-            word={word.toLowerCase()}
-            guesses={guesses}
-            setIsWin={setIsWin}
-          />
-          <Keyboard letter={letter} setLetter={setLetter} />
+          <Attempts />
+          <Word />
+          <Keyboard />
         </div>
       )}
       {!status && !isWin && (
         <div>
-          <GameOver word={word} newGame={newGame} />
+          <GameOver />
         </div>
       )}
       {isWin && (
         <div>
-          <Win word={word} score={score} newGame={newGame} />
+          <Win />
         </div>
       )}
     </div>

@@ -1,23 +1,22 @@
 import React, { memo, useEffect, useState } from "react";
+import { useGame } from "../../contexts/GameContext";
 
- var defaultLetters = "abcdefghijklmnopqrstuvwxyz".split("");
+const Keyboard = () => {
+  const {letter,letters,setLetter,buttonClick} =useGame();
+  // const buttonClick = (e) => {
+  //   setLetter(e.target.innerHTML);
+  // };
 
-const Keyboard = ({ letter, setLetter}) => {
-  const [letters,setLetters] =useState(defaultLetters)
-  const buttonClick = (e) => {
-    setLetter(e.target.innerHTML);
-  };
-
-  useEffect(() => {
-    console.log({ letter });
-    if (letter.length!==0) {
-      console.log({ letter });
-      setLetters(letters.filter((item) => item !== letter));
-    }
-    else {
-      setLetters(defaultLetters);
-    }
-  }, [letter]);
+  // useEffect(() => {
+  //   console.log({ letter });
+  //   if (letter.length!==0) {
+  //     console.log({ letter });
+  //     setLetters(letters.filter((item) => item !== letter));
+  //   }
+  //   else {
+  //     setLetters(defaultLetters);
+  //   }
+  // }, [letter]);
   return (
     <div className="flex flex-wrap justify-center mt-8">
       {letters.map((item, index) => (

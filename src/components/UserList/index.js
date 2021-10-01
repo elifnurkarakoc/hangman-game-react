@@ -19,7 +19,6 @@ const UserList = () => {
   };
   useEffect(() => {
     getUserList();
-    //console.log({ users });
   }, []);
 
   return (

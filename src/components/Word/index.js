@@ -1,18 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Letter from "../Letter";
 import { useTheme } from "../../contexts/ThemeContext";
-const Word = ({ word, guesses, setIsWin }) => {
+import { useGame } from "../../contexts/GameContext";
+const Word = () => {
   const { theme } = useTheme();
-  const getResult = () => {
-    let tempWord = word
-      .split("")
-      .map((l, i) => (guesses.includes(l) ? l : "_"));
-    return tempWord.join("") === word;
-  };
-  useEffect(() => {
-    let result = getResult();
-    setIsWin(result);
-  }, [guesses]);
+  const { word, guesses }=useGame();
+ 
   return (
     <div className={`flex flex-wrap justify-center text-${theme}-300 `}>
       {word.split("").map((l, i) => (

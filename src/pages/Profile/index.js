@@ -10,7 +10,7 @@ const Profile = () => {
   const deleteUser = async () => {
     const response = await fetchDeleteUser(user).catch((e) => console.log(e));
     logout();
-    console.log("deleteUser");
+    //console.log("deleteUser");
   };
   //Do you want your account?-->PopUp
   return (

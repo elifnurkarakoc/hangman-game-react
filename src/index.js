@@ -4,12 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./contexts/AuthContext";
-
+import { GameProvider } from "./contexts/GameContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 ReactDOM.render(
-  <React.StrictMode>  
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+  <React.StrictMode>
+    <AuthProvider>
+      <ThemeProvider>
+        <GameProvider>
+          <App />
+        </GameProvider>
+      </ThemeProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
