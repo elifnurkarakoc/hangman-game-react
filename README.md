@@ -1,11 +1,6 @@
 <p align="center">
     <h3 align="center">Hangman Game with React & Tailwind CSS</h3>
     <br />
-    <p align="center">
-        <a href="https://github.com/elifnurkarakoc">View Demo</a>
-        • 
-        <a href="https://github.com/elifnurkarakoc">Json-Server Live</a>
-    </p>
 </p>
 
 
@@ -20,6 +15,7 @@
 - [x] Protected route and authentication (Home, Profile, Score, Sign in , Sign up, Logout)
 - [x] Theme switcher with Tailwind CSS
 
+The live version of the project could not be deployed on netlify due to the json server.
 
 ### Built With
 
