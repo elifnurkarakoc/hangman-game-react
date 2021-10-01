@@ -1,50 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Error from "../../components/Error";
 import { useFormik } from "formik";
 import validationSchema from "./validations";
 import { fetchRegister } from "../../api";
 import { useAuth } from "../../contexts/AuthContext";
-
 /*Score default value of 0 is added to the data requested 
 from the user for registration and a request is made 
 for the json server registration process. */
-
 const Signup = ({ history }) => {
-  const { login } = useAuth();
-  const {
-    values,
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    errors,
-    touched,
-  } = useFormik({
-    initialValues: {
-      username: "",
-      password: "",
-      passwordConfirm: "",
-    },
-    onSubmit: async (values, bag) => {
-      try {
-        const response = await fetchRegister({
-          username: values.username,
-          password: values.password,
-          score:0,//default
-        });
-        login({
-          username: values.username,
-          password: values.password,
-          id: response.id,
-          score: 0,
-        });
-        history.push("/");
-      } catch (e) {
-        //console.log(e.data.message);
-        bag.setErrors({ general: e.response.data.message });
-      }
-    },
-    validationSchema,
-  });
+  const { login, user } = useAuth();
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
+    useFormik({
+      initialValues: {
+        username: "",
+        password: "",
+        passwordConfirm: "",
+      },
+      onSubmit: async (values, bag) => {
+        try {
+          const response = await fetchRegister({
+            username: values.username,
+            password: values.password,
+            score: 0, //default
+          });
+          login({
+            username: values.username,
+            password: values.password,
+            id: response.id,
+            score: 0,
+          });
+          history.push("/");
+        } catch (e) {
+          bag.setErrors({ general: e.response.data.message });
+        }
+      },
+      validationSchema,
+    });
+  //if the user is logged in, they should not see the singup screen
+  useEffect(() => {
+    if (user !== null) {
+      history.push("/");
+    }
+  }, []);
 
   return (
     <div className="flex justify-center ">

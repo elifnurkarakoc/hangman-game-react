@@ -4,8 +4,8 @@ import { useTheme } from "../../contexts/ThemeContext";
 import { useGame } from "../../contexts/GameContext";
 const Word = () => {
   const { theme } = useTheme();
-  const { word, guesses }=useGame();
- 
+  const { word, guesses } = useGame();
+
   return (
     <div className={`flex flex-wrap justify-center text-${theme}-300 `}>
       {word.split("").map((l, i) => (

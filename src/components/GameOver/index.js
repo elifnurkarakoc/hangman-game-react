@@ -3,19 +3,15 @@ import { RefreshIcon } from "../../icons/icon";
 import icon from "../../images/game-over.svg";
 import { useGame } from "../../contexts/GameContext";
 const GameOver = () => {
-  const {word,newGame} =useGame();
+  const { word, newGame } = useGame();
   return (
     <div className="flex flex-col items-center">
       <div>
-        {/* <GameOverIcon className="p-4" /> */}
         <img src={icon} alt="icon" className="w-30 h-24" />
       </div>
       <div className="text-2xl my-8 text-red-600 ">
         <p className="animate-bounce ">{word}</p>
       </div>
-      {/* <div className="text-3xl my-8 text-red-600 ">
-        <p className="animate-bounce ">GAME OVER</p>
-      </div> */}
       <div className="">
         <button
           onClick={newGame}

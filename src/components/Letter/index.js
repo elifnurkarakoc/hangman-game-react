@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Letter = ({letter}) => {
-    return (
-        <div>
-            {letter}
-        </div>
-    )
-}
+const Letter = ({ letter }) => {
+  return <div>{letter}</div>;
+};
 
-export default Letter
+export default Letter;

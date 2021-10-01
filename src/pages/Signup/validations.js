@@ -8,7 +8,8 @@ const schema = yup.object().shape({
   password: yup.string().required().min(min).max(max),
   passwordConfirm: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match").required(),
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required(),
 });
 
 export default schema;

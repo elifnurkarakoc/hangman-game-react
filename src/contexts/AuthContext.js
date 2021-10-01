@@ -1,6 +1,5 @@
 import { useState, createContext, useEffect, useContext } from "react";
 
-
 /*As soon as the user logs in, the data is kept in the local storage, 
 when the user logs out, the data is deleted from the local storege.
 When the page is refreshed, data is written to the local storage so that the user does not log in again. */
@@ -24,7 +23,7 @@ export const AuthProvider = ({ children }) => {
           id: userObject.id,
         };
   const [user, setUser] = useState(value);
-  const [loggedIn, setLoggedIn] = useState(user === null ? false: true);
+  const [loggedIn, setLoggedIn] = useState(user === null ? false : true);
 
   useEffect(() => {
     (async () => {
@@ -70,7 +69,6 @@ export const AuthProvider = ({ children }) => {
       score: data.score,
       id: data.id,
     };
-    // console.log("updateLocalStorageUser", { data });
     localStorage.setItem("user", JSON.stringify(userObject));
   };
 

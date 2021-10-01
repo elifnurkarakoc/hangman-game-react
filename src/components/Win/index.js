@@ -10,11 +10,6 @@ const Win = () => {
   return (
     <div className={`flex flex-col items-center text-${theme}-300 `}>
       <img src={icon} alt="icon" className="w-30 h-24"/>
-      {/* <FireworksIcon className="p-6 bg-${theme}-300" /> */}
-      {/* 
-      <div className="my-8">
-        <p className="animate-none text-3xl ">{word}</p>
-      </div> */}
       <div className="my-8 ">
         <p className="animate-bounce text-xl ">You won +{score} point</p>
       </div>

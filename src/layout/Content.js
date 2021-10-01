@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Attempts from "../components/Attempts";
 import Keyboard from "../components/Keyboard";
 import Word from "../components/Word";
@@ -12,37 +12,36 @@ import image5 from "../images/6.png";
 import image6 from "../images/6.png";
 import Win from "../components/Win";
 import GameOver from "../components/GameOver";
-import { randomWord } from "../api";
-import { fetchUpdateUser } from "../api";
-import { useTheme } from "../contexts/ThemeContext";
 import { useGame } from "../contexts/GameContext";
 import { useAuth } from "../contexts/AuthContext";
 import Title from "../components/Title";
+import { GAME_STATUS } from "../constant/constant";
+
 const images = [image0, image1, image2, image3, image4, image5, image6];
 
 const Content = () => {
-  const { theme } = useTheme();
-  const { status, isWin, word } = useGame();
+  const { status, newGame } = useGame();
   const { user } = useAuth();
-
+  useEffect(() => {
+    newGame();
+  }, []);
   return (
     <div className="">
-      {status && !isWin && (
+      {status === GAME_STATUS.START && (
         <div>
           {user !== null && <Title />}
           {/* <Image imagePath={images[5-attemptsCount]}/> */}
-          <div>{word}</div>
           <Attempts />
           <Word />
           <Keyboard />
         </div>
       )}
-      {!status && !isWin && (
+      {status === GAME_STATUS.LOSE && (
         <div>
           <GameOver />
         </div>
       )}
-      {isWin && (
+      {status === GAME_STATUS.WIN && (
         <div>
           <Win />
         </div>

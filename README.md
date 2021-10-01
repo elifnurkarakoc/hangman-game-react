@@ -1,38 +1,45 @@
 TODO
-- [ ] Sayfalara erişim kısmını tekrar düzenlicem hatalı.
+
+- [ ] Imageler ile adamı asmam gerekiyor.
+- [ ] Signup username kontrol
 - [ ] useMemo ve memo ile gereksiz render işlemlerini önlücem.
-- [ ] Proptype tanımlamalarını yapıcam.
 - [ ] zaman kalırsa testlerini yazıcam.
 - [ ] Code review yapıcam
-- [x] Kaldırılması gereken paketleri kaldır.
 - [ ] Netlify Deployment
 - [ ] Detaylı readme yazıcam,koda açıklamlar eklicem
+- [x] Iconlarda düzenleme yapmam gerekiyor--> VAZGEÇTİM IMAGE OLARAK KALSIN
+- [x] Sayfalara erişim kısmını tekrar düzenlicem hatalı.
+- [x] Login olan kişi sign in ve signup'ı görüntülememeli.
+- [x] Proptype tanımlamalarını yapıcam.
+- [x] Profiler
+- [x] Content.js de word 'ü kaldırıcam. ile kelimeden hello yu kaldırıcam.
+- [x] GameContext i yaz
+- [x] Kaldırılması gereken paketleri kaldır.
 - [x] Score sayfasında, sayfa yenilemeden veri güncellenmiyor.
 - [x] Popup style güncellicem.
-- [x] Iconlarda düzenleme yapmam gerekiyor
 - [x] Theme butonu eklicem,localstorage ekleme yaptım.
-- [x] Sayfa görünümlerini düzenlicem, 
-- [x]Footera kullandığım teknolojileri eklicem.
+- [x] Sayfa görünümlerini düzenlicem,
+- [x] Footera kullandığım teknolojileri eklicem.
 - [x] Localstorage da score güncellemesine bakıcam.
 - [x] Login olunduğu zaman sayfa güncellemesinde session kaybı yaşanmasını önledim
-- [ ] Login olan kişi sign in ve signup'ı görüntülememeli.
 - [x] Score güncelleme ikinci oyunda çalışmıyor. skor güncellenmeli ve Score table'a yansımalı.
 - [x] Do you want to delete your account? PopUp
-Örnek 
 - [x] Kişi Login olduğu zaman Score ve logout sağ üst köşede olucak
 - [x] Kişi Login olmadığı zaman Signin ve Signout sağ üst köşede olucak
-
-
-
-- [x] Thema seçeneği eklicem 
+- [x] Thema seçeneği eklicem
 - [x] Kullanıcı profile sayfası eklenebilir.
 - [x] Kullanıcı profile sayfasında kullanıcı silme işlemi yapılabilir.
-- [ ] Kodda tekrar olan yerleri component yapabilirim. Örneğin button olan yerler.
 
+DONE
 
--Update UI
-- [x] container
+- CRUD operations with Json-server
+- User sign in and sign up with Formik(authentication data is kept in the browser's local storage.)
+- Protected route and authentication (Home,Profile,Score,Sign in ,Sign up,Logout)
+- Theme Switcher with Tailwind CSS
+-
+-
 
+Tailwind CSS
 
 # Getting Started with Create React App
 

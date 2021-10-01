@@ -1,10 +1,10 @@
-import { useState, createContext, useEffect, useContext } from "react";
+import { useState, createContext, useEffect, useContext, useMemo } from "react";
 import { randomWord } from "../api";
 import { useAuth } from "./AuthContext";
 import { fetchUpdateUser } from "../api";
+import { GAME_STATUS } from "../constant/constant";
 
 const GameContext = createContext();
-
 var defaultLetters = "abcdefghijklmnopqrstuvwxyz".split("");
 
 export const GameProvider = ({ children }) => {
@@ -12,37 +12,32 @@ export const GameProvider = ({ children }) => {
   const [letter, setLetter] = useState("");
   const [letters, setLetters] = useState(defaultLetters);
   const [attemptsCount, setAttemptsCount] = useState(5);
-  const [status, setStatus] = useState(true); //status ==true --> new game, status ==false --> gameower
-  const [isWin, setIsWin] = useState(false); //isWin==true user win
-  const [word, setWord] = useState("hello"); //randomWord()
+  const [status, setStatus] = useState(GAME_STATUS.START);
+  const [word, setWord] = useState(randomWord());
   const [guesses, setGuesses] = useState([]);
   const [score, setScore] = useState(0);
 
-  const newGame = (e) => {
-    e.preventDefault();
-    setScore(attemptsCount);
-    setWord(randomWord());
-    setStatus(true);
-    setIsWin(false);
+  const newGame = () => {
+    setStatus(GAME_STATUS.START);
     setAttemptsCount(5);
     setLetter("");
     setGuesses([]);
   };
-
+  //const data = useMemo(() => {}, [status]);
   const buttonClick = (e) => {
     setLetter(e.target.innerHTML);
   };
-
+  useEffect(() => {
+    console.log("word cheat sheet", word);
+  }, [word]);
   //for the score to be updated when the user guesses correctly
   const updateScore = async () => {
-    let object = {
+    const response = await fetchUpdateUser({
       username: user.username,
       password: user.password,
       score: user.score + score,
       id: user.id,
-    };
-    console.log({ object });
-    const response = await fetchUpdateUser(object);
+    });
     setUser(response);
     updateLocalStorageUser(response);
   };
@@ -55,44 +50,44 @@ export const GameProvider = ({ children }) => {
     return tempWord.join("") === word;
   };
 
+  useEffect(() => {
+    if (status === GAME_STATUS.START) {
+      setWord(randomWord());
+    }
+  }, [status]);
+
   //if result is correct, user earns points.
+  //The remaining number of attempts is added as points when guessed correctly.
   useEffect(() => {
     let result = getResult();
-    setIsWin(result);
+    if (result) {
+      setStatus(GAME_STATUS.WIN);
+      updateScore();
+    }
   }, [guesses]);
 
   //removes it from the keyboard when a letter is pressed. updates when the game is refreshed.
   //It is checked whether the word contains the guessed letter or not.
   useEffect(() => {
-
     letter.length !== 0
       ? setLetters(letters.filter((item) => item !== letter))
       : setLetters(defaultLetters);
-
     setGuesses([...guesses, ...letter]);
     var flag = word.toLowerCase().includes(letter) ? true : false;
     if (!flag && attemptsCount > 1) {
       setAttemptsCount(attemptsCount - 1);
     } else if (attemptsCount === 1) {
       setAttemptsCount(0);
-      setStatus(false); //for the gameover
+      setStatus(GAME_STATUS.LOSE);
     }
     setScore(attemptsCount);
   }, [letter]);
-
-  //The remaining number of attempts is added as points when guessed correctly.
-  useEffect(() => {
-    if (isWin === true) {
-      updateScore();
-    }
-  }, [isWin]);
 
   const values = {
     letter,
     letters,
     attemptsCount,
     status,
-    isWin,
     word,
     guesses,
     score,

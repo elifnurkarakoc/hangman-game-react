@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import Error from "../../components/Error";
 import validationSchema from "./validations";
 import { useAuth } from "../../contexts/AuthContext";
 import { fetchUsers } from "../../api";
-
 /*After the user enters the login information(When the login button is clicked), the data in the json-server is checked. 
 If the user login information does not match, the error is written on the screen. */
 const SigninForm = ({ history }) => {
-  const { login } = useAuth();
-
+  const { login, user } = useAuth();
   const {
     values,
     handleSubmit,
@@ -54,6 +52,12 @@ const SigninForm = ({ history }) => {
     },
     validationSchema,
   });
+  //if the user is logged in, they should not see the singin screen
+  useEffect(() => {
+    if (user !== null) {
+      history.push("/");
+    }
+  }, []);
 
   return (
     <div className="flex justify-center ">

@@ -1,7 +1,9 @@
-import { useState, createContext, useEffect, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 
 const ThemeContext = createContext();
+
 let themeLocal = localStorage.getItem("hangman-theme");
+//theme change is kept in local storage, default value:"ligth"
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(
     themeLocal === null ? "light" : themeLocal
@@ -15,10 +17,12 @@ export const ThemeProvider = ({ children }) => {
       localStorage.setItem("hangman-theme", "light");
     }
   };
+
   const values = {
     theme,
     toggleTheme,
   };
+
   return (
     <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
   );

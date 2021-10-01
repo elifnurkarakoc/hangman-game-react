@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Route, Redirect } from "react-router";
+//user should not access the game page, score page, profile page without login
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const { loggedIn } = useAuth();
 
