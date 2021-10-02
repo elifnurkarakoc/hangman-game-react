@@ -25,9 +25,9 @@ export const GameProvider = ({ children }) => {
   };
   //const data = useMemo(() => {}, [status]);
 
-  useEffect(() => {
-    console.log("word cheat sheet", word);
-  }, [word]);
+  // useEffect(() => {
+  //   console.log("word cheat sheet", word);
+  // }, [word]);
 
   //for the score to be updated when the user guesses correctly
   const updateScore = async () => {
