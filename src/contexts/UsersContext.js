@@ -1,8 +1,10 @@
 import { useState, createContext, useEffect, useContext } from "react";
-import { fetchSortScore } from "../api";
+import { fetchSortScore, fetchDeleteUser } from "../api";
+import { useAuth } from "./AuthContext";
 const UsersContext = createContext();
 
 export const UsersProvider = ({ children }) => {
+  const { logout } = useAuth();
   const [users, setUsers] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -12,22 +14,24 @@ export const UsersProvider = ({ children }) => {
     setError(false);
     try {
       const response = await fetchSortScore();
-      console.log({response})
       setLoading(false);
-      setUsers([...response]);
+      setUsers(response);
     } catch (e) {
       setError(true);
     }
   };
 
-  useEffect(()=> {
-    getUserList();
-  },[])
+  const deleteUser = async (user) => {
+    const response = await fetchDeleteUser(user).catch((e) => console.log(e));
+    logout();
+  };
+
   const values = {
     users,
     isLoading,
     isError,
     getUserList,
+    deleteUser,
   };
 
   return (

@@ -16,7 +16,7 @@ const Content = () => {
 
   useEffect(() => {
     newGame();
-  }, []);
+  }, [])
 
   return (
     <div className="">

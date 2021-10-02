@@ -31,9 +31,9 @@ export const GameProvider = ({ children }) => {
     setLetter(e.target.innerHTML);
   };
 
-  // useEffect(() => {
-  //   console.log("word cheat sheet", word);
-  // }, [word]);
+  useEffect(() => {
+    console.log("word cheat sheet", word);
+  }, [word]);
 
   //for the score to be updated when the user guesses correctly
   const updateScore = async () => {

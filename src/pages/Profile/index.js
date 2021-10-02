@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import { fetchDeleteUser } from "../../api";
 import Popup from "../../components/Popup";
+import { useUsers } from "../../contexts/UsersContext";
 
 const Profile = () => {
-  const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  const deleteUser = async () => {
-    const response = await fetchDeleteUser(user).catch((e) => console.log(e));
-    logout();
-  };
+
+  const { user, logout } = useAuth();
+  const {deleteUser} =useUsers();
+
   //Do you want to delete your account?-->PopUp
   return (
     <div>
@@ -38,7 +37,7 @@ const Profile = () => {
       </div>
 
       {isOpen && (
-        <Popup handleClose={() => setIsOpen(false)} deleteUser={deleteUser} />
+        <Popup handleClose={() => setIsOpen(false)} deleteUser={()=> deleteUser(user)} />
       )}
     </div>
   );
