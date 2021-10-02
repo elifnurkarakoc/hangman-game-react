@@ -18,6 +18,7 @@ export const GameProvider = ({ children }) => {
   const [score, setScore] = useState(0);
 
   const newGame = () => {
+    //e.preventDefault()
     setStatus(GAME_STATUS.START);
     setAttemptsCount(5);
     setLetter("");

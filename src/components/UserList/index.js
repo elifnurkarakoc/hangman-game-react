@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from "react";
 import User from "../User";
 import { fetchSortScore } from "../../api";
-
+import { useUsers } from "../../contexts/UsersContext";
 const UserList = () => {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setLoading] = useState(false);
-  const [isError, setError] = useState(false);
-  const getUserList = async () => {
-    setLoading(true);
-    setError(false);
-    try {
-      const response = await fetchSortScore();
-      setLoading(false);
-      setUsers(response);
-    } catch (e) {
-      setError(true);
-    }
-  };
+  const { users, isError, isLoading, getUserList } = useUsers();
+
   useEffect(() => {
     getUserList();
   }, []);

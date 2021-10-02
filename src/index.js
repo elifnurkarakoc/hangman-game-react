@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./contexts/AuthContext";
 import { GameProvider } from "./contexts/GameContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { UsersProvider }from "./contexts/UsersContext"
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <ThemeProvider>
+        <UsersProvider >
         <GameProvider>
           <App />
         </GameProvider>
+        </UsersProvider>
       </ThemeProvider>
     </AuthProvider>
   </React.StrictMode>,
