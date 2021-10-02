@@ -1,6 +1,11 @@
 <p align="center">
     <h3 align="center">Hangman Game with React & Tailwind CSS</h3>
     <br />
+        <p align="center">
+        <a href="https://hangman-game-react-tailwindcss.netlify.app/">View Demo</a>
+        • 
+        <a href="https://my-json-server.typicode.com/elifnurkarakoc/hangman-game-react-json/users">Json-Server</a>
+    </p>
 </p>
 
 
@@ -15,7 +20,8 @@
 - [x] Protected route and authentication (Home, Profile, Score, Sign in , Sign up, Logout)
 - [x] Theme switcher with Tailwind CSS
 
-The live version of the project could not be deployed on netlify due to the json server.
+Deployed Json environment is not dynamic, changes are not persistent between calls.
+For this reason, you may not see the current version of the project's scoreboard on netlify.
 
 [You can access screenshots from the link](https://github.com/elifnurkarakoc/hangman-game-react/tree/main/hangman-game-ss)
 ### Built With
