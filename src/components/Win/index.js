@@ -1,7 +1,6 @@
 import React from "react";
 import { RefreshIcon } from "../../icons/icon";
 import { useTheme } from "../../contexts/ThemeContext"
-import icon from "../../images/party2.svg"
 import { useGame } from "../../contexts/GameContext";
 
 const Win = () => {
@@ -9,7 +8,6 @@ const Win = () => {
   const { theme } = useTheme();
   return (
     <div className={`flex flex-col items-center text-${theme}-300 `}>
-      {/* <img src={icon} alt="icon" className="w-30 h-24"/> */}
       <div className="my-8 ">
         <p className="animate-bounce text-xl ">You won +{score} point</p>
       </div>

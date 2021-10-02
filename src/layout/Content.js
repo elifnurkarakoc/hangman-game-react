@@ -13,9 +13,11 @@ import Figure from "../components/Figure";
 const Content = () => {
   const { status, newGame } = useGame();
   const { user } = useAuth();
+
   useEffect(() => {
     newGame();
   }, []);
+
   return (
     <div className="">
       {status === GAME_STATUS.START && (

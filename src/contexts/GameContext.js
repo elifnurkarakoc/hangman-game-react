@@ -24,12 +24,16 @@ export const GameProvider = ({ children }) => {
     setGuesses([]);
   };
   //const data = useMemo(() => {}, [status]);
+
+  //for the keyboard
   const buttonClick = (e) => {
     setLetter(e.target.innerHTML);
   };
-  useEffect(() => {
-    console.log("word cheat sheet", word);
-  }, [word]);
+
+  // useEffect(() => {
+  //   console.log("word cheat sheet", word);
+  // }, [word]);
+
   //for the score to be updated when the user guesses correctly
   const updateScore = async () => {
     const response = await fetchUpdateUser({
