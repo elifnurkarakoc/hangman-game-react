@@ -10,7 +10,7 @@ const Profile = () => {
     const response = await fetchDeleteUser(user).catch((e) => console.log(e));
     logout();
   };
-  //Do you want your account?-->PopUp
+  //Do you want to delete your account?-->PopUp
   return (
     <div>
       <div className="flex justify-center ">

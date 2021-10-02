@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+//to delete a user
 const Popup = ({ handleClose, deleteUser }) => {
   return (
     <>

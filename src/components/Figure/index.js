@@ -10,6 +10,8 @@ import {
   Lines,
 } from "./hangmanParts";
 import style from "./Figure.module.css";
+
+//shows hangman by number of attempts piece by piece.
 const Figure = () => {
 
   const { attemptsCount } = useGame();
