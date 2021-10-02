@@ -2,7 +2,8 @@ import { useState, createContext, useEffect, useContext } from "react";
 import { fetchSortScore, fetchDeleteUser } from "../api";
 import { useAuth } from "./AuthContext";
 const UsersContext = createContext();
-
+/*UsersContext is used for user listing on score page 
+and user deletion on profile page. */
 export const UsersProvider = ({ children }) => {
   const { logout } = useAuth();
   const [users, setUsers] = useState([]);

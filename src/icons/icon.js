@@ -74,10 +74,3 @@ export const DeleteIcon = ({ className }) => {
   );
 };
 
-//When I find suitable svg's, I will add them as svg, not as an image.
-export const FireworksIcon = ({ className }) => {
-  return <div className={className}></div>;
-};
-export const GameOverIcon = ({ className }) => {
-  return <div className={className}></div>;
-};

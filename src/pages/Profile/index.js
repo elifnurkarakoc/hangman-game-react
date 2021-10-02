@@ -6,7 +6,7 @@ import { useUsers } from "../../contexts/UsersContext";
 const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const {deleteUser} =useUsers();
 
   //Do you want to delete your account?-->PopUp

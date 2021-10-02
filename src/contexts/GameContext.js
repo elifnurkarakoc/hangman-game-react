@@ -18,18 +18,12 @@ export const GameProvider = ({ children }) => {
   const [score, setScore] = useState(0);
 
   const newGame = () => {
-    //e.preventDefault()
     setStatus(GAME_STATUS.START);
     setAttemptsCount(5);
     setLetter("");
     setGuesses([]);
   };
   //const data = useMemo(() => {}, [status]);
-
-  //for the keyboard
-  const buttonClick = (e) => {
-    setLetter(e.target.innerHTML);
-  };
 
   useEffect(() => {
     console.log("word cheat sheet", word);
@@ -97,7 +91,8 @@ export const GameProvider = ({ children }) => {
     guesses,
     score,
     newGame,
-    buttonClick,
+    setLetter,
+    //buttonClick,
   };
   return <GameContext.Provider value={values}>{children}</GameContext.Provider>;
 };

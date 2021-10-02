@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import User from "../User";
-import { fetchSortScore } from "../../api";
 import { useUsers } from "../../contexts/UsersContext";
 const UserList = () => {
   const { users, isError, isLoading, getUserList } = useUsers();
