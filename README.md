@@ -1,5 +1,5 @@
 <p align="center">
-    <h3 align="center">Hangman Game with React & Tailwind CSS</h3>
+    <h3 align="center">Hangman Game with ReactJS & Tailwind CSS</h3>
     <br />
         <p align="center">
         <a href="https://hangman-game-react-tailwindcss.netlify.app/">View Demo</a>
